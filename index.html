@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Pashkevich</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <span class="site-name">Daniel Pashkevich</span>
+    <nav class="tabs">
+      <button class="tab active" data-section="about">About Me</button>
+      <button class="tab" data-section="personal">Personal Projects</button>
+      <button class="tab" data-section="team">Team Projects</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="about">
+      <img class="profile-photo" src="images/placeholder.svg" alt="Photo of Daniel Pashkevich">
+      <h1>Daniel Pashkevich</h1>
+      <p class="bio">Write a short introduction about yourself here.</p>
+      <div class="contact">
+        <a href="mailto:you@example.com">Email</a>
+        <a href="https://github.com/DanielPashkevich">GitHub</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="personal" hidden>
+      <h2>Personal Projects</h2>
+      <div class="grid" id="personal-projects"></div>
+    </section>
+
+    <section id="team" hidden>
+      <h2>Team Projects</h2>
+
+      <h3>Team Product</h3>
+      <div class="grid" id="team-product"></div>
+
+      <h3>My Contribution</h3>
+      <div class="grid" id="my-contribution"></div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-content">
+      <button class="close" id="modal-close" aria-label="Close">&times;</button>
+      <h2 id="modal-title"></h2>
+      <div class="modal-images" id="modal-images"></div>
+      <p class="modal-description" id="modal-description"></p>
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
