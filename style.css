@@ -12,42 +12,45 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
   color: var(--text);
-  background: #fff;
-  line-height: 1.6;
+  line-height: 1.7;
+  background-color: #fff;
+  /* Faint abstract lines */
+  background-image: url("images/background.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* Top bar */
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 12px 24px;
+  justify-content: center;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border);
-  background: #fff;
-}
-
-.site-name {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--navy);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
 }
 
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  justify-content: center;
+  gap: 8px;
 }
 
 .tab {
   background: none;
   border: none;
   border-bottom: 3px solid transparent;
-  padding: 8px 12px;
-  font: inherit;
+  padding: 10px 20px;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
   color: var(--navy);
   cursor: pointer;
 }
@@ -63,15 +66,48 @@ body {
 
 /* Sections */
 main {
-  max-width: 1000px;
+  max-width: 1030px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 16px 16px 80px;
 }
 
 h1,
 h2,
 h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
   color: var(--navy);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Name in the bottom-right corner */
+.signature {
+  position: fixed;
+  right: 24px;
+  bottom: 12px;
+  font-family: "Allura", cursive;
+  font-size: 38px;
+  color: var(--navy);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .signature {
+    font-size: 28px;
+    right: 16px;
+  }
 }
 
 h2 {
@@ -120,41 +156,69 @@ h3 {
   background: var(--navy-dark);
 }
 
-/* Project squares */
+/* Project cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
-  background: var(--gray);
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0;
+  border-radius: 12px;
+  padding: 20px;
   cursor: pointer;
-  overflow: hidden;
   text-align: left;
   font: inherit;
   color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   border-color: var(--navy);
+  box-shadow: 0 4px 16px rgba(31, 58, 95, 0.1);
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 2px 12px;
+  border: 1px solid var(--navy);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.card-title {
+  display: block;
+  margin: 10px 0 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
 }
 
 .card img {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
-.card span {
+.card-summary {
   display: block;
-  padding: 8px 12px;
-  font-weight: bold;
-  color: var(--navy);
+  margin-top: 12px;
 }
 
 /* Pop-up */
@@ -166,6 +230,7 @@ h3 {
   align-items: center;
   justify-content: center;
   padding: 16px;
+  z-index: 10;
 }
 
 .modal[hidden] {
@@ -175,7 +240,8 @@ h3 {
 .modal-content {
   position: relative;
   background: #fff;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   width: 100%;
   max-width: 800px;
   max-height: 90vh;
@@ -206,7 +272,7 @@ h3 {
 
 .modal-images img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid var(--border);
 }
 

@@ -11,15 +11,30 @@ function buildGrid(gridId, list) {
     const card = document.createElement("button");
     card.className = "card";
 
+    if (project.tag) {
+      const tag = document.createElement("span");
+      tag.className = "card-tag";
+      tag.textContent = project.tag;
+      card.appendChild(tag);
+    }
+
+    const title = document.createElement("span");
+    title.className = "card-title";
+    title.textContent = project.title;
+    card.appendChild(title);
+
     const img = document.createElement("img");
     img.src = project.thumbnail;
     img.alt = project.title;
-
-    const title = document.createElement("span");
-    title.textContent = project.title;
-
     card.appendChild(img);
-    card.appendChild(title);
+
+    if (project.summary) {
+      const summary = document.createElement("span");
+      summary.className = "card-summary";
+      summary.textContent = project.summary;
+      card.appendChild(summary);
+    }
+
     card.addEventListener("click", function () {
       openModal(project);
     });
